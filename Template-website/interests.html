@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Allows for resposiveness in the website to work on all main devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Portfolio Website</title> 
+        <!-- Ensures the website behaves and looks the same on all browser -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <!-- for social icons (font awesome) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" /> 
+        
+        <!-- Link to css style sheet -->
+        <link rel="stylesheet" href="style.css">
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;900&family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <!-- Navigation bar -->
+        <header>
+            <div class="logo">
+                <img src="images/logo.jpg" alt="">
+            </div>
+            
+            <button class="nav-button" aria-label="toggle navbar">
+                <span class="burger-menu"></span>
+            </button>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-bar"><a href="index.html" class="nav-link">Home</a>
+                    <li class="nav-bar"><a href="index.html#myskill" class="nav-link">My skills</a>
+                    <li class="nav-bar"><a href="mywork.html" class="nav-link">My work</a>
+                    <li class="nav-bar"><a href="#intre" class="nav-link">Interests</a>
+                </ul>
+            </nav> 
+        </header>
+        <!-- Navigation bar END -->
+        
+        <!-- Introduction to page -->
+        <section class="intro">
+            <h1 class="intro-title">
+                <strong>Name</strong>
+            </h1>
+            <p class="intro-subtitle">Interests</p>
+            <img src="Images/man.jpg" alt="man1" class="intro-img">
+        </section>
+        <!-- Introduction to page END-->
+        
+        <div class="portfolio-item-one">
+            <h2>Football</h2>
+            <img src="Images/football.jpg" alt="">
+        </div>
+        
+         <div class="portfolio-item-one">
+            <h2>Basketball</h2>
+            <img src="Images/basketball.jpg" alt="">
+        </div>
+
+        
+        <!-- Footer -->
+        <footer>
+            <a href="mailto:agjas001@gold.ac.uk" class="footer-link">email@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list-item">
+                    <a class="social-list-link" href="https://www.instagram.com/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a class="social-list-link" href="https://twitter.com/explore">
+                        <i class="fab fa-twitter-square"></i>
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a class="social-list-link" href="https://en-gb.facebook.com/">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a class="social-list-link" href="https://github.com/">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+        <!-- Footer END -->
+        
+        <!-- javaScript reference -->
+        <script src="index.js"></script>
+    </body>
+</html>

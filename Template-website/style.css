@@ -1,0 +1,451 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* root allows access to multiple fonts, colours, font sizes easily through var */
+:root{
+    /* ff = font family */
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+    
+    /* fw = font weight */
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    /* crl = colour */
+    --clr-light: #fff; 
+    --clr-dark: #303030;
+    --clr-accent: yellow;
+    
+    /* fs = font size */
+    --fs-h1: 2.9rem; 
+    --fs-h2: 2.24rem;
+    --fs-h3: 1.24rem;
+    --fs-body: 0.9rem;
+    
+    /* bs = box shadow */
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,0.75);
+}
+
+@media (min-width: 800px){
+    :root{
+        --fs-h1: 4.4rem;
+        --fs-h2: 3.74rem;
+        --fs-h3: 1.51rem;
+        --fs-body: 1.124rem;
+    }
+}
+
+/* General Styles */
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    margin: 0;
+    line-height: 1.61;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+
+/* Image styling (ensures that all imgaes adjust) */
+img{
+    display: block;
+    max-width: 100%;
+}
+
+strong{
+    font-weight: var(--fw-bold);
+}
+
+/* button animation */
+.btn{
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-dark);
+    background: var(--clr-accent);
+    padding: .5em 1.5em;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 2px;
+}
+
+/* Header styling */
+h1, h2, h3{
+    line-height: 1;
+    margin: 0;
+}
+
+h1{
+    font-size: var(--fs-h1);
+}
+
+h2{
+    font-size: var(--fs-h2);
+}
+
+h3{
+    font-size: var(--fs-h3);
+}
+
+/* Title and subtitle editing */
+
+.intro-title{
+    margin-bottom: .20em;
+    font-weight: var(--fw-reg);
+}
+
+/* Drops name to the next line */
+.intro-title strong{
+    display: block;
+}
+
+.intro-subtitle, .about-subtitle{
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h3);
+    padding: .25em 1em;
+    margin-bottom: 1em;
+}
+
+/* header editing */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.logo{
+    max-width: 150px;
+    height: auto;
+}
+
+.nav{
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav-list{
+    color: var(--clr-light);
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-open .nav{
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle{
+    position: fixed;
+}
+
+.nav-link{
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--clr-accent);
+}
+
+.nav-toggle{
+    padding: .27em;
+    background: transparent;
+    border: 0;
+}
+
+.burger-menu{
+    background: var(--clr-dark);
+    width: 2.1em;
+    height: 3.1px;
+    border-radius: 1.1em;
+    display: block;
+    position: relative;
+}
+
+.burger-menu,
+.burger-menu::before,
+.burger-menu::after{
+    background: var(--clr-accent);
+    width: 2.1em;
+    height: 3.1px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.burger-menu::before,
+.burger-menu::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.burger-menu::before{
+    top: 7px;
+}
+.burger-menu::after{
+    bottom: 7px;
+}
+
+.nav-button{
+    padding: .56em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    z-index: 1000;
+}
+
+/* Introduction editing */
+
+.intro {
+    position: relative;
+}
+
+.intro-img {
+    box-shadow: var(--bs);
+}
+
+/* adjusting image and text allignment */
+@media (min-width: 600px){
+    .intro{
+        display: grid;
+        grid-template-areas: 
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;
+        grid-column-gap: 1em;
+        width: min-content;
+        margin: auto
+    }
+    
+    .intro-img{
+        grid-area: img;
+        min-width: 300px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .intro-subtitle{
+        align-self: start;
+        grid-row: 2;
+        grid-column: -1/1;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width:calc(100% + 1.5em);
+    }
+}
+
+/* My skills editing */
+
+.my-skill{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.skill-title{
+    position: relative;
+    color: var(--clr-accent);
+}
+
+/* Underline under My skills header */
+.skill-title::after{
+    content:'';
+    display: block;
+    width: 2em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    opacity: 0.5;
+}
+
+.skill {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 3em;
+}
+
+/* @media allows for responsiveness */
+@media (min-width: 800px){
+    .skills{
+        display: flex;
+        max-width: 1010px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .skill + .skill{
+        margin-left: 5em;
+    }
+    
+}
+
+/* About me section */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Creates a shadow effect on the image */
+.about-me-img{
+    box-shadow: var(--bs);
+}
+
+/* @media allows for responsiveness */
+@media (min-width: 600px){
+    .about-me{
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas:
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;
+    }
+    
+    .about-title{
+        grid-area: title;
+    }
+    
+    .about-me-img{
+        grid-area: img; 
+    }
+}
+
+/* My work page */
+
+.my-work{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.work-subtitle{
+    color: var(--clr-accent);
+    font-weight: var(--fw-bold);
+    margin-bottom: 3em;
+}
+
+.portfolio{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+}
+
+.portfolio-descr{
+    background: var(--clr-accent);
+    overflow: hidden;
+    max-height: 400px;
+}
+
+.portfolio-img:hover{
+    transform: scale(1,1.1,1);
+    opacity: 0.5;
+    transition: 200ms;
+}
+
+/* footer section */
+
+footer{
+    background: #111;
+    color: var(--clr-accent);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+}
+
+.footer-link{
+    font-weight: var(--fw-bold);
+    color: var(--clr-accent);
+}
+
+.footer a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-link:hover,
+.social-list-item:hover{
+    opacity: 0.8;
+    color: var(--clr-accent);
+}
+
+.social-list{
+    color: (--clr-accent);
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 2em, 0 0;
+    padding: 0;
+}
+
+.social-list-item{
+    margin: 1.5
+    color var(--clr-accent);
+}
+
+.social-list-link {
+    padding: .5em;
+}
+
+/* Interests page */
+
+.portfolio-item-one{
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-one p{
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
